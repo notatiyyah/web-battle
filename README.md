@@ -1,5 +1,5 @@
 # Web Battle 
-## Intro to the Web
+Intro to the Web
 
 ### User Stories
 
