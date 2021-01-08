@@ -9,11 +9,11 @@ describe Game do
     end
 
     it "can decrease p1's health" do
-        expect{ game.p1_take_damage }.to change { game.p1_health }.by(-20)
+        expect{ game.p1_take_damage }.to change { game.p1_health }.by(-10)
     end
 
     it "can decrease p2's health" do
-        expect{ game.p2_take_damage }.to change { game.p2_health }.by(-20)
+        expect{ game.p2_take_damage }.to change { game.p2_health }.by(-10)
     end
 
 end

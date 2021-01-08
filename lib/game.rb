@@ -10,11 +10,11 @@ class Game
     end
 
     def p1_take_damage
-      @p1_health -= 20
+      @p1_health -= 10
     end
 
     def p2_take_damage
-      @p2_health -= 20
+      @p2_health -= 10
     end
-    
+
 end
