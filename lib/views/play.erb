@@ -1,2 +1,8 @@
 <h1><%= @P1 %> : <%= @P2 %></h1>
-<p><%= @hit_points_1 %> : <%= @hit_points_2 %></p> %>
+<p><%= @hit_points_1 %> : <%= @hit_points_2 %></p>
+
+
+<form action="/hit" method="POST">
+    <input type="submit" name="P1_Attack" value="Attack">
+    <input type="submit" name="P2_Attack" value="Attack">
+</form>
