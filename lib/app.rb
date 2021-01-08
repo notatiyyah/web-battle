@@ -3,6 +3,10 @@ require 'sinatra/base'
 class BattleApp < Sinatra::Base
   enable :sessions
 
+  get "/test" do
+    'Testing infrastructure working!'
+  end
+
   get '/' do
     erb :index
   end
