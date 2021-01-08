@@ -11,4 +11,7 @@ class Player
         @health += num
     end
 
+    def dead?
+        @health <= 0 
+    end
 end

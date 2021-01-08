@@ -1,8 +1,24 @@
-<h1><%= @p1.name %> : <%= @p2.name %></h1>
-<p><%= @p1.health %> : <%= @p2.health %></p>
+<h1><%= @game.p1.name %> : <%= @game.p2.name %></h1>
+<p><%= @game.p1.health %> : <%= @game.p2.health %></p>
 
+<% if @game.dead_players.empty? %>
+    
+    <h2><%= @game.current_player.name %>'s turn!</h2>
+    
+    <form action="/hit" method="POST">
+        <% if @game.current_player == @game.p1 %>
+            <input type="submit" name="P1_Attack" value="Attack">
+        <% else %>
+            <input type="submit" name="P2_Attack" value="Attack">
+        <% end %>
+    </form>
 
-<form action="/hit" method="POST">
-    <input type="submit" name="P1_Attack" value="Attack">
-    <input type="submit" name="P2_Attack" value="Attack">
-</form>
+<% else %>
+    
+    <% if @game.dead_players.length == 2 %>
+        <h1>Draw!</h1>
+    <% else %>
+        <h1><%= @game.dead_players[0] == @game.p1 ? @game.p2.name : @game.p1.name %> wins!</h1>
+    <% end %>
+    
+<% end %>

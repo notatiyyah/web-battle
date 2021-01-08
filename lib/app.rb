@@ -24,8 +24,7 @@ class BattleApp < Sinatra::Base
   end
 
   get '/play' do
-    @p1 = session[:game].p1
-    @p2 = session[:game].p2
+    @game = session[:game]
     # Extract player data
     erb :play
   end
