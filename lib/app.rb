@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative 'game.rb'
+require_relative 'player.rb'
 
 class BattleApp < Sinatra::Base
   enable :sessions
@@ -14,17 +15,24 @@ class BattleApp < Sinatra::Base
   end
 
   post '/names' do
-    session[:game] = Game.new(params["player_1"],params["player_2"])
+    p1 = Player.new(params["player_1"])
+    p2 = Player.new(params["player_2"])
+    # Create player objects
+    session[:game] = Game.new(p1,p2)
+    # Create game and store in session
     redirect "/play"
   end
 
   get '/play' do
-    @game = session[:game]
+    @p1 = session[:game].p1
+    @p2 = session[:game].p2
+    # Extract player data
     erb :play
   end
 
   post '/hit' do
-    params["P1_Attack"].nil? ? session[:game].p1_take_damage : session[:game].p2_take_damage
+    session[:game].launch_attack(params.keys[0])
+    # Get param for which button was pressed & launch attack
     redirect "/play"
   end
 

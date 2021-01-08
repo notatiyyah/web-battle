@@ -25,7 +25,7 @@ feature "hit player" do
         expect(page).to have_content "100 : 90"
     end
 
-    scenario "player 2 hits player 1 & p2 health = -10" do
+    scenario "player 2 hits player 1 & p1 health = -10" do
         sign_in_and_play
         click_on 'P2_Attack'
         expect(page).to have_content "90 : 100"

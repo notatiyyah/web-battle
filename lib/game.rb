@@ -1,20 +1,23 @@
 class Game
-    attr_reader :p1_health, :p2_health, :p1_name, :p2_name
-    @@BASE_HEALTH = 100
+    attr_reader :p1, :p2
 
     def initialize(p1,p2)
-      @p1_name = p1
-      @p2_name = p2
-      @p1_health = @@BASE_HEALTH
-      @p2_health = @@BASE_HEALTH
+      @p1 = p1
+      @p2 = p2
     end
 
+    def launch_attack(player)
+      player == "P1_Attack" ? p2_take_damage : p1_take_damage
+    end
+
+    private
+
     def p1_take_damage
-      @p1_health -= 10
+      @p1.change_hp(-10)
     end
 
     def p2_take_damage
-      @p2_health -= 10
+      @p2.change_hp(-10)
     end
 
 end
